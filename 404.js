@@ -1,4 +1,3 @@
-import lzString from 'lz-string';
 let url = new URL(window.location.href);
 console.log(url);
 let body = document.body;
@@ -6,14 +5,22 @@ let heading = document.getElementById('happyBirthday');
 let image = document.getElementById('birthdayImage');
 let cardText = document.getElementById('text');
 
-let foreground = lzString.decompress(url.searchParams.get('fg'));
-let background = lzString.decompress(url.searchParams.get('bg'));
-let fontSize = lzString.decompress(url.searchParams.get('fs'));
-let fontFamily = lzString.decompress(url.searchParams.get('ff'));
-let picture = lzString.decompress(url.searchParams.get('pic'));
-let text = lzString.decompress(url.searchParams.get('text'));
-let personName = lzString.decompress(url.pathname.slice(1));
-
+let foreground = url.searchParams.get('fg');
+let background = url.searchParams.get('bg');
+let fontSize = url.searchParams.get('fs');
+let fontFamily = url.searchParams.get('ff');
+let picture = url.searchParams.get('pic');
+let text = url.searchParams.get('text');
+let personName = url.pathname.split('/')[1];
+console.log(
+	foreground,
+	background,
+	fontSize,
+	fontFamily,
+	picture,
+	text,
+	personName
+);
 body.style.background = background;
 body.style.color = foreground;
 body.style.textAlign = 'center';
