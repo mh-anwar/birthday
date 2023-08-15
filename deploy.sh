@@ -3,7 +3,7 @@
 echo "Building Vite project..."
 vite build
 
-echo "Clonign birthday repo..."
+echo "Cloning birthday repo..."
 mkdir temp
 temp_dir=temp
 git clone git@github.com:mh-anwar/birthday.git "$temp_dir"
