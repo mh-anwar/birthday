@@ -17,14 +17,15 @@ git add -A
 git commit -m "Update /docs with latest build"
 
 echo "Merging temporary branch into /docs..."
-git checkout docs
+git branch -D docs
+git checkout -b docs
 git merge temp-deploy
 
 echo "Pushing changes to /docs branch..."
 git push origin docs
 
 echo "Cleaning up..."
-git branch -d temp-deploy
+git branch -D temp-deploy
 cd ..
 rm -rf "$temp_dir"
 
