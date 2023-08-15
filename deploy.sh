@@ -11,14 +11,19 @@ cd "$temp_dir"
 
 echo "Creating and updating temporary branch..."
 git checkout -b temp-deploy
+
+echo "Fetching latest changes from origin/docs..."
+git fetch origin
+git rebase origin/docs
+
+echo "Copying files from dist/ to /docs..."
 git rm -rf .
 cp -r ../dist/* . # recursively copy all files from dist/
 git add -A
 git commit -m "Update /docs with latest build"
 
 echo "Merging temporary branch into /docs..."
-git branch -D docs
-git checkout --orphan docs
+git checkout docs
 git merge temp-deploy
 
 echo "Pushing changes to /docs branch..."
