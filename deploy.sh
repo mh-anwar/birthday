@@ -18,7 +18,7 @@ git commit -m "Update /docs with latest build"
 
 echo "Merging temporary branch into /docs..."
 git branch -D docs
-git checkout -b docs
+git checkout --orphan docs
 git merge temp-deploy
 
 echo "Pushing changes to /docs branch..."
