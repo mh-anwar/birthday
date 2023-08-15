@@ -1,6 +1,4 @@
 import lzString from 'lz-string';
-import './404';
-import './404.html';
 let copier = document.getElementById('copyURL');
 let finalData = document.getElementById('generatedURL');
 let fg = document.getElementById('fg');
