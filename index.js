@@ -1,3 +1,4 @@
+import lzString from 'lz-string';
 let copier = document.getElementById('copyURL');
 let finalData = document.getElementById('generatedURL');
 let fg = document.getElementById('fg');
@@ -6,25 +7,24 @@ let fs = document.getElementById('fs');
 let ff = document.getElementById('ff');
 let cardText = document.getElementById('cardText');
 let person = document.getElementById('person');
-
 function updateURL() {
-	const url = new URL(person.value, 'https://b.anwar.app');
+	const url = new URL(lzString.compress(person.value), 'https://b.anwar.app');
 	const searchParams = new URLSearchParams(url.search);
-	console.log(fg.value);
+
 	if (fg.value) {
-		searchParams.set('fg', fg.value);
+		searchParams.set('fg', lzString.compress(fg.value));
 	}
 	if (bg.value) {
-		searchParams.set('bg', bg.value);
+		searchParams.set('bg', lzString.compress(bg.value));
 	}
 	if (fs.value) {
-		searchParams.set('fs', fs.value);
+		searchParams.set('fs', lzString.compress(fs.value));
 	}
 	if (ff.value) {
-		searchParams.set('ff', ff.value);
+		searchParams.set('ff', lzString.compress(ff.value));
 	}
 	if (cardText.value) {
-		searchParams.set('t', cardText.value);
+		searchParams.set('t', lzString.compress(cardText.value));
 	}
 	url.search = searchParams.toString();
 
