@@ -3,6 +3,7 @@ let fg = document.getElementById('fg');
 let bg = document.getElementById('bg');
 let fs = document.getElementById('fs');
 let ff = document.getElementById('ff');
+let p = document.getElementById('p');
 let cardText = document.getElementById('cardText');
 let person = document.getElementById('person');
 
@@ -10,21 +11,19 @@ function updateURL() {
 	const url = new URL(person.value, 'https://b.anwar.app');
 	const searchParams = new URLSearchParams(url.search);
 
-	if (fg.value) {
-		searchParams.set('fg', fg.value);
-	}
-	if (bg.value) {
-		searchParams.set('bg', bg.value);
-	}
-	if (fs.value) {
-		searchParams.set('fs', fs.value);
-	}
-	if (ff.value) {
-		searchParams.set('ff', ff.value);
-	}
-	if (cardText.value) {
-		searchParams.set('t', cardText.value);
-	}
+	if (fg.value) searchParams.set('fg', fg.value);
+
+	if (bg.value) searchParams.set('bg', bg.value);
+
+	if (fs.value) searchParams.set('fs', fs.value);
+
+	if (ff.value) searchParams.set('ff', ff.value);
+
+	if (p.value) searchParams.set('p', p.value);
+	console.log(p.value);
+
+	if (cardText.value) searchParams.set('t', cardText.value);
+
 	url.search = searchParams.toString();
 	copier.addEventListener('click', () => {
 		copyData(url);
@@ -52,5 +51,6 @@ fg.addEventListener('input', updateURL);
 ff.addEventListener('input', updateURL);
 fs.addEventListener('input', updateURL);
 bg.addEventListener('input', updateURL);
+p.addEventListener('input', updateURL);
 cardText.addEventListener('input', updateURL);
 person.addEventListener('input', updateURL);

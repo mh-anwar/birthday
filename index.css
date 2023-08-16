@@ -42,12 +42,14 @@ body {
 
 
 
-input {
+input,
+select {
     outline: none;
     border: 1px solid white;
     border-radius: 0.5em;
     padding: 0.5em;
     width: 10rem;
+    background-color: white;
 }
 
 input[type="color"] {
