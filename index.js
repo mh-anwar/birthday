@@ -8,7 +8,7 @@ let cardText = document.getElementById('cardText');
 let person = document.getElementById('person');
 
 function updateURL() {
-	const url = new URL(person.value, 'https://b.anwar.app');
+	const url = new URL(person.value, 'https://b.mohammadanwar.dev');
 	const searchParams = new URLSearchParams(url.search);
 
 	if (fg.value) searchParams.set('fg', fg.value);
